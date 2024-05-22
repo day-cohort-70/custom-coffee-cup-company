@@ -1,0 +1,96 @@
+{
+  "sizes": [
+    {
+      "id": 1,
+      "description": "Kids",
+      "price": 405
+    },
+    {
+      "id": 2,
+      "description": "Small",
+      "price": 782
+    },
+    {
+      "id": 3,
+      "description": "Medium",
+      "price": 1470
+    },
+    {
+      "id": 4,
+      "description": "Giganto",
+      "price": 1997
+    }
+  ],
+  "flavors": [
+    {
+      "id": 1,
+      "flavor": "Basil",
+      "price": 12.42
+    },
+    {
+      "id": 2,
+      "flavor": "Sesame",
+      "price": 736.4
+    },
+    {
+      "id": 3,
+      "flavor": "Mango",
+      "price": 1258.9
+    },
+    {
+      "id": 4,
+      "flavor": "Platinum",
+      "price": 795.45
+    },
+    {
+      "id": 5,
+      "flavor": "Grass",
+      "price": 1241
+    }
+  ],
+  "milks": [
+    {
+      "id": 1,
+      "type": "Chocolate",
+      "price": 2
+    },
+    {
+      "id": 2,
+      "type": "Glycerine",
+      "price": 2
+    },
+    {
+      "id": 3,
+      "type": "Pepto Bismol",
+      "price": 2
+    },
+    {
+      "id": 4,
+      "type": "Garbonzo Bean",
+      "price": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "milkId": 3,
+      "sizeId": 2,
+      "flavors": [
+        1,
+        3,
+        5
+      ],
+      "timestamp": 1614659931693
+    },
+    {
+      "sizeId": 2,
+      "milkId": 2,
+      "id": 2
+    },
+    {
+      "sizeId": 4,
+      "milkId": 4,
+      "id": 3
+    }
+  ]
+}
