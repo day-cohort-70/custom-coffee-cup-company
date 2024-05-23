@@ -1,5 +1,6 @@
 @import "details.css";
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
 
 /*Typography
 --------------------------------------------------------------*/
@@ -8,15 +9,22 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: "Comfortaa", Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.5;
+    color: #404040;
+    font-family: "Rubik Moonrocks", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: .5px;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  font-family: "Patua One", serif;
-  letter-spacing: 2px;
+b
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Rubik Moonrocks", sans-serif;
+    letter-spacing: 2px;
 }
 
 ul {
@@ -24,15 +32,71 @@ ul {
     padding-inline-start: 0.25rem;
 }
 
-#orderButton {
-    margin: 1rem 0 2rem 2rem;
-    padding: 0.5rem;
-    background-color: rgb(227, 72, 72);
-    color: lightgoldenrodyellow;
-    font-size: 1rem;
-}
-
 .types {
     display: flex;
     margin: 2rem 0 0 2rem;
+}
+
+.title {
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.choice_title {
+    text-align: center;
+}
+
+#orderButton {
+    align-items: center;
+    background-clip: padding-box;
+    background-color: #fa6400;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 1.25;
+    margin: 1rem 0 2rem 2rem;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+}
+
+#orderButton:hover,
+#orderButton5:focus {
+    background-color: #fb8332;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+#orderButton:hover {
+    transform: translateY(-1px);
+}
+
+#orderButton:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+}
+
+.coffee-cup-image {
+        width: 50px;
+        height: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

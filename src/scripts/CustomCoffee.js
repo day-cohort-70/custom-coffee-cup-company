@@ -4,6 +4,7 @@ import { Milks } from "./Milks.js"
 import { Orders } from "./Orders.js"
 import { CoffeeCupSizes } from "./Sizes.js"
 
+
 document.addEventListener("click", async (event)  => {
     if (event.target.id === "orderButton") {
         addCustomOrder()
@@ -19,19 +20,21 @@ export const CustomCoffee = async () => {
 
 
     return `
-        <h1>Custom Coffee Cup Company Incorporated</h1>
-
+        <div class="header">
+        <img class="coffee-cup-image" src="images/coffee-cup.png" alt="oops that should be a coffee cup image">
+        <h1 class="title" >Custom Coffee Cup Company Incorporated</h1>
+        </div>
         <article class="choices">
             <section class="choices__sizes options">
-                <h2>Sizes</h2>
+                <h2 class="choice_title" >Sizes</h2>
                 ${sizeChoices}
             </section>
             <section class="choices__flavors options">
-                <h2>Flavors</h2>
+                <h2 class="choice_title" >Flavors</h2>
                 ${flavorBoxes}
             </section>
             <section class="choices__milks options">
-                <h2>Milks</h2>
+                <h2 class="choice_title" >Milks</h2>
                 ${milkChoices}
             </section>
         </article>
