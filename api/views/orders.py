@@ -25,8 +25,25 @@ class OrderView():
             cursor.execute(query, param_values)
             new_order_id = cursor.lastrowid
 
+            for flavor_id in request_body['flavors']:
+                query = """
+                INSERT INTO OrderFlavors
+                (
+                    OrderID,
+                    FlavorID
+                )
+                VALUES ( ?, ? )
+                """
+
+                param_values = ( new_order_id, flavor_id )
+
+                cursor.execute(query, param_values)
+
+            connection.commit()
+
         return json.dumps({
             'OrderId': new_order_id,
             'ChosenMilkId': request_body['milkId'],
             'ChosenSizeId': request_body['sizeId'],
+            'Flavors': request_body['flavors']
         })
