@@ -79,3 +79,49 @@ INSERT INTO Flavors (Description) VALUES ('Irish Cream');
 INSERT INTO Flavors (Description) VALUES ('Coconut');
 INSERT INTO Flavors (Description) VALUES ('White Chocolate');
 INSERT INTO Flavors (Description) VALUES ('Raspberry');
+
+
+
+
+-- Add price column to Milks table
+ALTER TABLE Milks
+ADD COLUMN Price REAL;
+
+-- Add price column to Sizes table
+ALTER TABLE Sizes
+ADD COLUMN Price REAL;
+
+-- Add price column to Flavors table
+ALTER TABLE Flavors
+ADD COLUMN Price REAL;
+
+-- Update Milks table with random prices
+UPDATE Milks
+SET Price = ROUND(ABS(RANDOM() % 226) / 100.0 + 0.25, 2);
+
+-- Update Sizes table with random prices
+UPDATE Sizes
+SET Price = ROUND(ABS(RANDOM() % 226) / 100.0 + 0.25, 2);
+
+-- Update Flavors table with random prices
+UPDATE Flavors
+SET Price = ROUND(ABS(RANDOM() % 226) / 100.0 + 0.25, 2);
+
+
+SELECT
+    o.OrderID,
+    o.ChosenMilkID,
+    o.ChosenSizeID,
+    m.Description AS MilkDescription,
+    m.MilkID,
+    s.Description AS SizeDescription,
+    s.SizeID,
+    s.Price AS SizePrice,
+    m.Price AS MilkPrice,
+    GROUP_CONCAT(f.FlavorID || '|' || f.Description || '|' || f.Price, ',') AS Flavors
+FROM Orders o
+JOIN Milks m ON m.MilkID = o.ChosenMilkID
+JOIN Sizes s ON s.SizeID = o.ChosenSizeID
+JOIN OrderFlavors of ON of.OrderID = o.OrderID
+JOIN Flavors f ON f.FlavorID = of.FlavorID
+GROUP BY o.OrderID, o.ChosenMilkID, o.ChosenSizeID, m.Description, m.MilkID, s.Description, s.SizeID, s.Price, m.Price;

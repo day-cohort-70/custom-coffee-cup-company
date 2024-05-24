@@ -14,7 +14,7 @@ class JSONServer(HandleRequests):
         view = self.determine_view(url)
 
         try:
-            json_data = view.get()
+            json_data = view.get(url)
             return self.response(json_data, status.HTTP_200_SUCCESS.value)
         except AttributeError:
             return self.response("No view for that route", status.HTTP_404_CLIENT_ERROR_RESOURCE_NOT_FOUND.value)

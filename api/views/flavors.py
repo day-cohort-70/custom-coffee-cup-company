@@ -4,7 +4,7 @@ import json
 
 class FlavorView:
 
-    def get(self):
+    def get(self, url):
         with sqlite3.connect('coffee.sqlite3') as connection:
             connection = sqlite3.connect('coffee.sqlite3')
             connection.row_factory = sqlite3.Row
