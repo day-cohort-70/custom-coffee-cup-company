@@ -24,8 +24,8 @@ export const CoffeeCupSizes = async () => {
                 sizes.map(size => {
                     return `<li>
                         <input type="radio"
-                            ${currentUserChoices.size === size.SizeId ? "checked" : ""}
-                            name="size" value="${size.SizeId}" /> ${size.Description}
+                            ${currentUserChoices.size === size.SizeID ? "checked" : ""}
+                            name="size" value="${size.SizeID}" /> ${size.Description}
                     </li>`
                 }).join("")
             }

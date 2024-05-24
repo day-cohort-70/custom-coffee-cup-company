@@ -21,8 +21,8 @@ export const Flavors = async () => {
         const listItems = flavors.map(flavor => {
             return `<li>
                 <input type="checkbox"
-                    ${currentUserChoices.flavors.has(flavor.FlavorId) ? "checked" : ""}
-                    name="flavor" value="${flavor.FlavorId}" /> ${flavor.Description}
+                    ${currentUserChoices.flavors.has(flavor.FlavorID) ? "checked" : ""}
+                    name="flavor" value="${flavor.FlavorID}" /> ${flavor.Description}
             </li>`
         })
 

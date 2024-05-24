@@ -3,7 +3,7 @@ import { settings } from "./Settings.js"
 
 
 document.addEventListener("change", (event) => {
-    if (event.target.name === "size") {
+    if (event.target.name === "milk") {
         setMilkChoice(parseInt(event.target.value))
     }
 })
@@ -23,8 +23,8 @@ export const Milks = async () => {
                 milks.map(milk => {
                     return `<li>
                         <input type="radio"
-                            ${currentUserChoices.milk === milk.MilkId ? "checked" : ""}
-                            name="milk" value="${milk.MilkId}" /> ${milk.Description}
+                            ${currentUserChoices.milk === milk.MilkID ? "checked" : ""}
+                            name="milk" value="${milk.MilkID}" /> ${milk.Description}
                     </li>`
                 }).join("")
             }

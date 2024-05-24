@@ -36,7 +36,8 @@ export const addCustomOrder = async () => {
         },
         body: JSON.stringify({
             sizeId: applicationState.size,
-            milkId: applicationState.milk
+            milkId: applicationState.milk,
+            flavors: Array.from(applicationState.flavors)
         })
     })
     if (response.status === 201) {

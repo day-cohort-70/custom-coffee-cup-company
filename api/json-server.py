@@ -21,17 +21,19 @@ class JSONServer(HandleRequests):
 
     def do_POST(self):
         # Parse the URL
+        url = self.parse_url(self.path)
 
         # Determine the correct view needed to handle the requests
+        view = self.determine_view(url)
 
         # Get the request body
+        body = self.get_request_body()
 
         # Invoke the correct method on the view
-
-        # Make sure you handle the AttributeError in case the client requested a route that you don't support
+        json_of_new_order = view.create(body)
 
         # Once you implement this method, delete the following line of code
-        return self.response("", status.HTTP_405_UNSUPPORTED_METHOD.value)
+        return self.response(json_of_new_order, status.HTTP_201_SUCCESS_CREATED.value)
 
 
     def determine_view(self, url):
