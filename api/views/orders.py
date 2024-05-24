@@ -5,6 +5,45 @@ from nss_handler import status
 
 class OrderView():
 
+    def get(self):
+        with sqlite3.connect('coffee.sqlite3') as connection:
+            connection = sqlite3.connect('coffee.sqlite3')
+            connection.row_factory = sqlite3.Row
+            cursor = connection.cursor()
+
+            query = """
+            SELECT
+                o.OrderID,
+                o.ChosenMilkID,
+                o.ChosenSizeID,
+                m.Description AS MilkDescription,
+                m.MilkID,
+                s.Description AS SizeDescription,
+                s.SizeID
+            FROM Orders o
+            JOIN Milks m ON m.MilkID = o.ChosenMilkID
+            JOIN Sizes s ON s.SizeID = o.ChosenSizeID
+            """
+            cursor.execute(query)
+            rows = cursor.fetchall()
+
+            orders = []
+            for row in rows:
+                order = {
+                    'id': row['OrderID'],
+                    'size': {
+                        'sizeId': row['SizeID'],
+                        'description': row['SizeDescription']
+                    },
+                    'milk': {
+                        'milkId': row['MilkID'],
+                        'description': row['MilkDescription']
+                    }
+                }
+                orders.append(order)
+
+        return json.dumps(orders)
+
     def create(self, request_body):
         with sqlite3.connect('coffee.sqlite3') as connection:
             connection = sqlite3.connect('coffee.sqlite3')
