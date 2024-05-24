@@ -23,8 +23,8 @@ export const Milks = async () => {
                 milks.map(milk => {
                     return `<li>
                         <input type="radio"
-                            ${currentUserChoices.milk === milk.id ? "checked" : ""}
-                            name="milk" value="${milk.id}" /> ${milk.type}
+                            ${currentUserChoices.milk === milk.MilkId ? "checked" : ""}
+                            name="milk" value="${milk.MilkId}" /> ${milk.Description}
                     </li>`
                 }).join("")
             }

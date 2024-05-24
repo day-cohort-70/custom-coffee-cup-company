@@ -11,6 +11,7 @@ document.addEventListener("change", (event) => {
 export const CoffeeCupSizes = async () => {
     try {
         const response = await fetch(`${settings.remoteURL}/sizes`)
+
         if (response.status !== 200) {
             return "<h3>Could not load coffee cup sizes</h3>"
         }
@@ -23,8 +24,8 @@ export const CoffeeCupSizes = async () => {
                 sizes.map(size => {
                     return `<li>
                         <input type="radio"
-                            ${currentUserChoices.size === size.id ? "checked" : ""}
-                            name="size" value="${size.id}" /> ${size.description}
+                            ${currentUserChoices.size === size.SizeId ? "checked" : ""}
+                            name="size" value="${size.SizeId}" /> ${size.Description}
                     </li>`
                 }).join("")
             }
